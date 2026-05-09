@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keerthana Ramamoorthy - UX Designer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e9ecef;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #495057;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero .tagline {
+            font-size: 24px;
+            opacity: 0.95;
+            margin-bottom: 16px;
+        }
+        
+        .hero .bio {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 700px;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+        }
+        
+        .btn {
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        /* Stats Bar */
+        .stats {
+            background: #f8f9fa;
+            padding: 48px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 15px;
+            color: #6c757d;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: #6c757d;
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 1px solid #e9ecef;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: 700;
+        }
+        
+        .project-content {
+            padding: 24px;
+        }
+        
+        .project-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        
+        .project-description {
+            font-size: 15px;
+            color: #6c757d;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .tag {
+            background: #e7f1ff;
+            color: #0056b3;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .project-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .metric {
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .metric-label {
+            font-size: 12px;
+            color: #6c757d;
+        }
+        
+        /* Skills Section */
+        .skills-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .skill-category h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            font-size: 15px;
+            color: #495057;
+            padding: 8px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Experience Timeline */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #667eea;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 48px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #667eea;
+        }
+        
+        .timeline-date {
+            font-size: 14px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .timeline-company {
+            font-size: 16px;
+            color: #6c757d;
+            margin-bottom: 12px;
+        }
+        
+        .timeline-description {
+            font-size: 15px;
+            color: #495057;
+            line-height: 1.7;
+        }
+        
+        .timeline-description ul {
+            margin-top: 12px;
+            padding-left: 20px;
+        }
+        
+        .timeline-description li {
+            margin-bottom: 8px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            color: white;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 12px 24px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        
+        .contact-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 32px 0;
+        }
+        
+        footer p {
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                gap: 16px;
+            }
+            
+            nav a {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Keerthana Ramamoorthy</div>
+            <ul>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>UX Designer Creating Impact Through Human-Centered Design</h1>
+            <p class="tagline">Transforming complex problems into delightful experiences</p>
+            <p class="bio">I'm a UX Designer with 5+ years of experience designing user-centered web and mobile applications across SaaS and e-commerce platforms. I specialize in UX research, interaction design, and scalable design systems that improve usability and drive product adoption. Currently designing financial inclusion solutions at Juakali, where my work has increased user satisfaction by 30% and accelerated development cycles by 2x.</p>
+            <div class="cta-buttons">
+                <a href="#work" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">30%</div>
+                    <div class="stat-label">User Satisfaction Increase</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2x</div>
+                    <div class="stat-label">Faster Development</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">UI Components Created</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Work -->
+    <section class="section" id="work">
+        <div class="container">
+            <h2 class="section-title">Featured Work</h2>
+            <p class="section-subtitle">Selected projects showcasing my approach to solving complex UX challenges</p>
+            
+            <div class="projects-grid">
+                <!-- Project 1: Juakali -->
+                <div class="project-card">
+                    <div class="project-image">💰</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Financial Inclusion SaaS Platform</h3>
+                        <p class="project-description">End-to-end UX transformation of a global financial inclusion platform, simplifying complex workflows and improving accessibility for underserved communities.</p>
+                        <div class="project-tags">
+                            <span class="tag">UX Research</span>
+                            <span class="tag">Design Systems</span>
+                            <span class="tag">Accessibility</span>
+                            <span class="tag">Mobile-First</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">30%</div>
+                                <div class="metric-label">User Satisfaction ↑</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">50%</div>
+                                <div class="metric-label">Drop-offs ↓</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: E-Commerce -->
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">🛍️</div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-Commerce Platform Enhancement</h3>
+                        <p class="project-description">Redesigned core user flows and checkout experience for an e-commerce platform, reducing friction and improving conversion rates through data-driven design.</p>
+                        <div class="project-tags">
+                            <span class="tag">User Flows</span>
+                            <span class="tag">A/B Testing</span>
+                            <span class="tag">Prototyping</span>
+                            <span class="tag">Analytics</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">25%</div>
+                                <div class="metric-label">Conversion ↑</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">40%</div>
+                                <div class="metric-label">Task Time ↓</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Mobile App -->
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">📱</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Parking Mobile Application</h3>
+                        <p class="project-description">Designed end-to-end UX for a mobile parking application, from user research and personas to high-fidelity prototypes and usability testing.</p>
+                        <div class="project-tags">
+                            <span class="tag">Mobile UX</span>
+                            <span class="tag">User Personas</span>
+                            <span class="tag">Wireframing</span>
+                            <span class="tag">User Testing</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">4.5★</div>
+                                <div class="metric-label">App Rating</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">90%</div>
+                                <div class="metric-label">Task Success</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <p class="section-subtitle">A comprehensive toolkit for solving complex UX challenges</p>
+            
+            <div class="skills-categories">
+                <div class="skill-category">
+                    <h3>🔍 UX Research</h3>
+                    <ul>
+                        <li>User Interviews</li>
+                        <li>Usability Testing</li>
+                        <li>A/B Testing</li>
+                        <li>Surveys & Analytics</li>
+                        <li>User Journey Mapping</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>✏️ Design</h3>
+                    <ul>
+                        <li>Wireframing & Prototyping</li>
+                        <li>Interaction Design</li>
+                        <li>Information Architecture</li>
+                        <li>Responsive Design</li>
+                        <li>Design Systems</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🛠️ Tools</h3>
+                    <ul>
+                        <li>Figma (Expert)</li>
+                        <li>Adobe XD</li>
+                        <li>Sketch</li>
+                        <li>Miro</li>
+                        <li>Figma AI & ChatGPT</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>♿ Accessibility</h3>
+                    <ul>
+                        <li>WCAG Compliance</li>
+                        <li>Screen Reader Testing</li>
+                        <li>Inclusive Design</li>
+                        <li>Color Contrast</li>
+                        <li>Keyboard Navigation</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🤝 Collaboration</h3>
+                    <ul>
+                        <li>Agile Methodology</li>
+                        <li>Cross-functional Teams</li>
+                        <li>Stakeholder Management</li>
+                        <li>Design Handoff</li>
+                        <li>Design Thinking</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>📊 Data & Metrics</h3>
+                    <ul>
+                        <li>UX Metrics</li>
+                        <li>Data-Driven Design</li>
+                        <li>Analytics Tools</li>
+                        <li>Conversion Optimization</li>
+                        <li>User Behavior Analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <p class="section-subtitle">Building impactful experiences across industries</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Sept 2021 – Present</div>
+                    <h3 class="timeline-title">UX Designer</h3>
+                    <div class="timeline-company">Juakali | France (Remote)</div>
+                    <div class="timeline-description">
+                        <p>Leading UX design for a global financial inclusion SaaS platform serving underserved communities.</p>
+                        <ul>
+                            <li>Drove 30% increase in user satisfaction through comprehensive UX redesign</li>
+                            <li>Built scalable design system ensuring WCAG accessibility compliance</li>
+                            <li>Collaborated with cross-functional teams to align user needs with business goals</li>
+                            <li>Leveraged AI-assisted tools to accelerate UI iterations and improve efficiency</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 2020 – Sept 2021</div>
+                    <h3 class="timeline-title">UI/UX Designer</h3>
+                    <div class="timeline-company">Dyuga Tech Private Limited | Telangana, India</div>
+                    <div class="timeline-description">
+                        <p>Designed end-to-end UX solutions for an e-commerce platform.</p>
+                        <ul>
+                            <li>Created wireframes and high-fidelity prototypes improving user engagement</li>
+                            <li>Analyzed customer feedback to identify and resolve usability issues</li>
+                            <li>Collaborated with developers to ensure smooth design-to-development handoff</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 2019 – Jan 2020</div>
+                    <h3 class="timeline-title">UI/UX Designer (Intern)</h3>
+                    <div class="timeline-company">Lykiq Labs Private Limited | Bengaluru, India</div>
+                    <div class="timeline-description">
+                        <p>Conducted user research and designed mobile application interfaces.</p>
+                        <ul>
+                            <li>Created user personas and journey maps for mobile applications</li>
+                            <li>Designed complete UX for a parking mobile app from research to high-fidelity UI</li>
+                            <li>Assisted in usability testing and iterative design improvements</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Work Together</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">I'm always interested in hearing about new projects and opportunities</p>
+            
+            <div class="contact-links">
+                <a href="mailto:keerthi.rm11@gmail.com" class="contact-link">
+                    📧 keerthi.rm11@gmail.com
+                </a>
+                <a href="https://linkedin.com/in/keerthana-ramamoorthy" class="contact-link" target="_blank">
+                    💼 LinkedIn Profile
+                </a>
+                <a href="tel:+918248456317" class="contact-link">
+                    📱 +91-8248456317
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Keerthana Ramamoorthy. Designed with care and attention to detail.</p>
+        </div>
+    </footer>
+</body>
+</html>
